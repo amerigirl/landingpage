@@ -5,31 +5,32 @@ import { Database20Filled } from "@fluentui/react-icons";
 const useStyles = makeStyles({
   card: {
     margin: "auto",
-    width: "250px",
-    height: "350px",
-    color: "pink",
+    width: "225px",
+    height: "250px",
+    color: "blue",
     padding: 0,
-    borderRadius: "20px",
   },
   cardContainer: {
     display: "flex",
     backgroundColor: "white",
     marginLeft: "2rem",
-    padding: "30px",
+    padding: "10px",
   },
   headerRoot: {
     display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "yellowgreen",
-    height: "50%",
-    justifyContent: "center",
-    alignItems: "center",
+    height: "100px",
   },
-  iconWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+  icon: {
+    fontSize: "32px",
+    color: "red",
   },
- 
+  footer: {
+    color: "pink",
+    textAlign: "center",
+  },
 });
 
 const App = (): JSX.Element => {
@@ -38,11 +39,11 @@ const App = (): JSX.Element => {
   return (
     <div className={styles.cardContainer}>
       <Card className={styles.card}>
-        <CardHeader as="div" className={styles.headerRoot}>
-        </CardHeader>
-        <div className={styles.iconWrapper}>
-            <Database20Filled />
-          </div>
+        <CardHeader
+          as="div"
+          className={styles.headerRoot}
+          header={<Database20Filled className={styles.icon} />}
+        />
       </Card>
     </div>
   );
