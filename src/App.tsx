@@ -29,11 +29,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
-  iconStyle: {
-    width: 48,
-    height: 48,
-    fill: "white", // Use fill for SVG icon color to show on dark background
-  },
+ 
 });
 
 const App = (): JSX.Element => {
@@ -43,9 +39,9 @@ const App = (): JSX.Element => {
     <div className={styles.cardContainer}>
       <Card className={styles.card}>
         <CardHeader as="div" className={styles.headerRoot}>
-         <div>Hi</div>
-        </CardHeader> <div className={styles.iconWrapper}>
-            <Database20Filled className={styles.iconStyle} />
+        </CardHeader>
+        <div className={styles.iconWrapper}>
+            <Database20Filled />
           </div>
       </Card>
     </div>
