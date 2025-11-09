@@ -1,62 +1,81 @@
 import * as React from "react";
-import { makeStyles, Card } from "@fluentui/react-components";
-import { Database20Filled } from "@fluentui/react-icons";
-import './App.css';
+import type { JSXElement } from "@fluentui/react-components";
+import {
+  makeStyles,
+  Body1,
+  Caption1,
+  Button,
+  Card,
+  CardFooter,
+  CardHeader,
+  CardPreview,
+  FluentProvider,
+  webLightTheme,
+} from "@fluentui/react-components";
+import { ArrowReplyRegular, ShareRegular } from "@fluentui/react-icons";
+
+const resolveAsset = (asset: string) => {
+  const ASSET_URL =
+    "https://raw.githubusercontent.com/microsoft/fluentui/master/packages/react-components/react-card/stories/src/assets/";
+  return `${ASSET_URL}${asset}`;
+};
 
 const useStyles = makeStyles({
-
   card: {
     margin: "auto",
-    width: "225px",
-    height: "250px",
-    borderRadius: "15px",
-    padding: "2px",
-  },
-  cardContainer: {
-    display: "flex",
-    marginLeft: "2rem",
-    alignItems: "center",
-    justifyContent:"space-between"
+    width: "720px",
+    maxWidth: "100%",
   },
   headerRoot: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "yellowgreen",
-    height: "100px",
-    borderTopLeftRadius: "15px",
-    borderTopRightRadius: "15px",
-  },
-  icon: {
-    fontSize: "32px",
-    color: "red",
+    justifyContent: "center", // horizontal center
+    alignItems: "center", // vertical center
+    height: "72px", // default CardHeader height can vary, 72px is typical
+    padding: 0,
+    lineHeight: "normal",
   },
 });
 
-const App = (): JSX.Element => {
+export const App = (): JSXElement => {
   const styles = useStyles();
 
   return (
-  
-      <div className={styles.cardContainer}>
-        <Card className={styles.card}>
-          <div className={styles.headerRoot}>
-            <Database20Filled className={styles.icon} />
-          </div>
-        </Card>
-        <Card className={styles.card}>
-          <div className={styles.headerRoot}>
-            <Database20Filled className={styles.icon} />
-          </div>
-        </Card>
-        <Card className={styles.card}>
-          <div className={styles.headerRoot}>
-            <Database20Filled className={styles.icon} />
-          </div>
-        </Card>
-      </div>
+    <FluentProvider theme={webLightTheme}>
+      <Card className={styles.card}>
+        <CardHeader
+          as="div"
+          className={styles.headerRoot}
+          image={
+            <img
+              src={resolveAsset("avatar_elvia.svg")}
+              alt="Elvia Atkins avatar picture"
+            />
+          }
+          header={
+            <Body1>
+              <b>Elvia Atkins</b> mentioned you
+            </Body1>
+          }
+          description={<Caption1>5h ago · About us - Overview</Caption1>}
+        />
 
+        <CardPreview
+          logo={
+            <img src={resolveAsset("docx.png")} alt="Microsoft Word document" />
+          }
+        >
+          <img
+            src={resolveAsset("doc_template.png")}
+            alt="Preview of a Word document: About Us - Overview"
+          />
+        </CardPreview>
+
+        <CardFooter>
+          <Button icon={<ArrowReplyRegular fontSize={16} />}>Reply</Button>
+          <Button icon={<ShareRegular fontSize={16} />}>Share</Button>
+        </CardFooter>
+      </Card>
+    </FluentProvider>
   );
 };
-
-export default App;
+export default App; 
