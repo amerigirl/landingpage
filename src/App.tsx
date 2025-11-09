@@ -70,10 +70,7 @@ export const App = (): JSXElement => {
           />
         </CardPreview>
 
-        <CardFooter>
-          <Button icon={<ArrowReplyRegular fontSize={16} />}>Reply</Button>
-          <Button icon={<ShareRegular fontSize={16} />}>Share</Button>
-        </CardFooter>
+      
       </Card>
     </FluentProvider>
   );
