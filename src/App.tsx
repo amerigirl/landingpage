@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles, Card, CardHeader } from "@fluentui/react-components";
+import { makeStyles, Card } from "@fluentui/react-components";
 import { Database20Filled } from "@fluentui/react-icons";
 
 const useStyles = makeStyles({
@@ -27,10 +27,6 @@ const useStyles = makeStyles({
     fontSize: "32px",
     color: "red",
   },
-  footer: {
-    color: "pink",
-    textAlign: "center",
-  },
 });
 
 const App = (): JSX.Element => {
@@ -39,11 +35,9 @@ const App = (): JSX.Element => {
   return (
     <div className={styles.cardContainer}>
       <Card className={styles.card}>
-        <CardHeader
-          as="div"
-          className={styles.headerRoot}
-          header={<Database20Filled className={styles.icon} />}
-        />
+        <div className={styles.headerRoot}>
+          <Database20Filled className={styles.icon} />
+        </div>
       </Card>
     </div>
   );
